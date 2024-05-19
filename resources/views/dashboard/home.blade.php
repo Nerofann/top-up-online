@@ -26,30 +26,32 @@
 
 <div class="panel">
     <div class="panel-body">
-        <div class="d-flex justify-content-start flex-wrap mb-2">
-            @foreach ($kategori as $item)
-                <button class="btn btn-sm btn-outline-primary mt-2 me-2" id="nav-topup-tab" data-bs-toggle="tab" data-bs-target="#nav-topup" type="button" role="tab" aria-controls="nav-topup" aria-selected="true">{{ $item }}</button>
+        <div class="btn-box d-flex flex-wrap gap-1" id="nav-tab" role="tablist">
+            @foreach ($kategori as $key => $item)
+                <button class="btn btn-sm btn-outline-primary mt-1 me-1 {{ ($key == 0) ? "active" : "" }}" data-bs-toggle="tab" data-bs-target="#{{ $item['kt_code'] }}" type="button" role="tab" aria-controls="nav-{{ $item['kt_code'] }}">{{ ucfirst(strtolower($item['kt_name'])) }}</button>
             @endforeach
         </div>
         <hr>
 
         <div class="tab-content">
-            <div class="tab-pane active" id="topup">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-md-2">
-                            <div class="card">
-                                <div class="card-img-top pt-3 px-3">
-                                    <img src="{{ asset('assets/images/products/topup/icon-ml-gif.gif') }}" class="rounded-2" alt="">
-                                </div>
-                                <div class="card-body text-center">
-                                    <h6>Mobile Legends</h6>
+            @foreach ($kategori as $key => $item)
+                <div class="tab-pane fade {{ ($key == 0) ? "active show" : "" }}" id="{{ $item['kt_code'] }}">
+                    <div class="row">
+                        @foreach ($item['providers'] as $provider)
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <div class="card-img-top pt-3 px-3">
+                                        <img src="{{ asset('assets/images/products/'.strtolower(str_replace(' ', '-', $item['kt_name'])).'/'.$provider['pv_image'].'') }}" class="rounded-2" alt="">
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h6>Mobile Legends</h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
