@@ -39,12 +39,12 @@
                     <div class="row">
                         @foreach ($item['providers'] as $provider)
                             <div class="col-md-2">
-                                <div class="card">
+                                <div class="card h-100 border-light">
                                     <div class="card-img-top pt-3 px-3">
                                         <img src="{{ asset('assets/images/products/'.strtolower(str_replace(' ', '-', $item['kt_name'])).'/'.$provider['pv_image'].'') }}" class="rounded-2" alt="">
                                     </div>
                                     <div class="card-body text-center">
-                                        <h6>Mobile Legends</h6>
+                                        <h6>{{ $provider['pv_code'] }}</h6>
                                     </div>
                                 </div>
                             </div>
