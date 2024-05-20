@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\Services\ApiGames;
+use App\Services\ApiGamesImplement;
+use App\Services\ApiTokoVoucher;
+use App\Services\ApiTokoVoucherImplement;
+use App\Services\AppGlobals;
+use App\Services\AppGlobalsImplement;
 use App\Services\Sidebar;
 use App\Services\SidebarImplement;
 use Illuminate\Support\Facades\View;
@@ -14,7 +20,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(Sidebar::class, SidebarImplement::class);
+        $this->app->singleton(AppGlobals::class, AppGlobalsImplement::class);
+        $this->app->singleton(ApiTokoVoucher::class, ApiTokoVoucherImplement::class);
+        // $this->app->singleton(ApiGames::class, ApiGamesImplement::class);
     }
 
     /**
@@ -22,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $sidebar = $this->app->make(Sidebar::class);
+        $this->app->make(AppGlobals::class);
+        $this->app->make(ApiTokoVoucher::class);
+        // $this->app->make(ApiGames::class);
     }
 }
