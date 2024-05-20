@@ -2,10 +2,7 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Facades\Auth;
-
-class SidebarImplement implements Sidebar
-{
+class AppGlobalsImplement implements AppGlobals {
     public function getSidebar(): array|object
     {
         $sidebars   = [

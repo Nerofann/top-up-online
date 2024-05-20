@@ -2,7 +2,7 @@
 
 namespace App\View\Components;
 
-use App\Services\Sidebar as ServicesSidebar;
+use App\Services\AppGlobals as ServicesSidebar;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;

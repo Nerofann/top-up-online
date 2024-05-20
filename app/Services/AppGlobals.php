@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-interface Sidebar
-{
+interface AppGlobals {
     public function getSidebar(): array|object;
 }
