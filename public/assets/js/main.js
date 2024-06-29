@@ -14,6 +14,18 @@
         }
 
 
+        $('.digi-dataTable').DataTable();
+        $('.dropify').dropify({
+            tpl: {
+                message: '<div class="dropify-message"><span class="file-icon" /> <p class="small">{{ default }}</p></div>',
+            }
+        });
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        })
         //------------------------------------------------------------------------------------------------------------------
         // Overlay Scroll Bar Init
         //------------------------------------------------------------------------------------------------------------------
@@ -234,7 +246,7 @@
         let blueMode = localStorage.getItem('blueMode');
         const enableBlueMode = () => {
             $('body').removeClass('light-theme dark-theme');
-            $('.header .main-logo .logo-big img, .mobile-logo img, .logo img').attr('src', 'assets/images/logo-black-new.png');
+            $('.header .main-logo .logo-big img, .mobile-logo img, .logo img').attr('src', '/assets/images/logo-black-new.png');
             localStorage.setItem("blueMode", "enabled");
             localStorage.removeItem("darkMode");
         };
@@ -251,7 +263,7 @@
         let darkMode = localStorage.getItem('darkMode');
         const enableDarkMode = () => {
             $('body').removeClass('light-theme').addClass('dark-theme');
-            $('.header .main-logo .logo-big img, .mobile-logo img, .logo img').attr('src', 'assets/images/logo-black-new.png');
+            $('.header .main-logo .logo-big img, .mobile-logo img, .logo img').attr('src', '/assets/images/logo-black-new.png');
             localStorage.setItem("darkMode", "enabled");
             localStorage.removeItem("blueMode");
         };
@@ -267,7 +279,7 @@
         let lightMode = localStorage.getItem('lightMode');
         const enableLightMode = () => {
             $('body').removeClass('dark-theme').addClass('light-theme');
-            $('.header .main-logo .logo-big img, .mobile-logo img, .logo img').attr('src', 'assets/images/logo-big-new.png');
+            $('.header .main-logo .logo-big img, .mobile-logo img, .logo img').attr('src', '/assets/images/logo-big-new.png');
             localStorage.removeItem("blueMode");
             localStorage.removeItem("darkMode");
         };

@@ -35,7 +35,7 @@ class ApiTokoVoucherImplement implements ApiTokoVoucher {
         return true;
     }
 
-    public function get(string $query, array $data):object
+    public function get(string $query, array $data, $create = false):object
     {
         $data['member_code']    = $this->memberCode;
         $data['signature']      = $this->signature;
@@ -45,9 +45,11 @@ class ApiTokoVoucherImplement implements ApiTokoVoucher {
             $response   = Http::connectTimeout(20)->timeout(10)->acceptJson()->get($url, $data);            
             $products   = $response->object();
 
-            $filename   = "public/TKV-".$data['kode'].".json";
-            Storage::delete([$filename]); 
-            Storage::append($filename, json_encode($products->data, JSON_PRETTY_PRINT));
+            if($create) {
+                $filename   = "public/TKV-".$data['kode'].".json";
+                Storage::delete([$filename]); 
+                Storage::append($filename, json_encode($products->data, JSON_PRETTY_PRINT));
+            }
 
 
             if($response->clientError()) {

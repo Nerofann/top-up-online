@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('vendor_id')->constrained('vendors', 'id');
             $table->foreignId('provider_id')->constrained('providers', 'id');
-            $table->enum('type', ['promo', 'diamond', 'membership', 'reguler', 'new', 'old']);
+            $table->string('type');
             $table->string('name');
             $table->text('description')->nullable();
             $table->double('price_vendor');

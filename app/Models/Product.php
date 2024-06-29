@@ -21,6 +21,22 @@ class Product extends Model
         "extra",
         "instructions",
         "status",
+        "icon",
         "published"
     ];
+
+    public function product_vendor()
+    {
+        return $this->belongsTo(Vendor::class, 'vendor_id', 'id');
+    }
+
+    public function provider()
+    {
+        return $this->belongsTo(Provider::class, 'provider_id', 'id');
+    }
+
+    public function product_published()
+    {
+        return $this->belongsTo(User::class, 'published', 'uuid');
+    }
 }

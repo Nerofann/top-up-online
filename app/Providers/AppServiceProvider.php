@@ -8,9 +8,6 @@ use App\Services\ApiTokoVoucher;
 use App\Services\ApiTokoVoucherImplement;
 use App\Services\AppGlobals;
 use App\Services\AppGlobalsImplement;
-use App\Services\Sidebar;
-use App\Services\SidebarImplement;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

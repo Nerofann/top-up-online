@@ -4,5 +4,5 @@ namespace App\Services;
 
 interface ApiTokoVoucher {
     public function endpoint():string;
-    public function get(string $query, array $data);
+    public function get(string $query, array $data, bool $create = false);
 }

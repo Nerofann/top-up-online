@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Http\Request;
@@ -58,7 +59,6 @@ class LoginController extends Controller
 
         session()->regenerate();
         $user   = Auth::user();
-        $route  = ($user->role == 2)? "home" : "admin_dashboard";
-        return redirect()->route( $route )->with("success", "Selamat datang kembali {$user->first_name}");
+        return redirect()->route( "dashboard" )->with("success", "Selamat datang kembali {$user->first_name}");
     }
 }

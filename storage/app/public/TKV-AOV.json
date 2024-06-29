@@ -1,0 +1,178 @@
+[
+    {
+        "id": 216,
+        "code": "AOV1430",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S1",
+        "nama_produk": "1430 AOV Vouchers",
+        "deskripsi": "",
+        "price": 270000,
+        "status": 1
+    },
+    {
+        "id": 4417,
+        "code": "AOV1430_S2",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S2",
+        "nama_produk": "1430 Voucher AOV S2",
+        "deskripsi": " ",
+        "price": 276400,
+        "status": 1
+    },
+    {
+        "id": 213,
+        "code": "AOV230",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S1",
+        "nama_produk": "230 AOV Vouchers",
+        "deskripsi": "",
+        "price": 45000,
+        "status": 1
+    },
+    {
+        "id": 4414,
+        "code": "AOV230_S2",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S2",
+        "nama_produk": "230 Voucher AOV S2",
+        "deskripsi": " ",
+        "price": 46100,
+        "status": 1
+    },
+    {
+        "id": 217,
+        "code": "AOV2390",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S1",
+        "nama_produk": "2390 AOV Vouchers",
+        "deskripsi": "",
+        "price": 450000,
+        "status": 1
+    },
+    {
+        "id": 4418,
+        "code": "AOV2390_S2",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S2",
+        "nama_produk": "2390 Voucher AOV S2",
+        "deskripsi": " ",
+        "price": 460600,
+        "status": 1
+    },
+    {
+        "id": 211,
+        "code": "AOV40",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S1",
+        "nama_produk": "40 AOV Vouchers",
+        "deskripsi": "",
+        "price": 9000,
+        "status": 1
+    },
+    {
+        "id": 4412,
+        "code": "AOV40_S2",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S2",
+        "nama_produk": "40 Voucher AOV S2",
+        "deskripsi": " ",
+        "price": 9220,
+        "status": 1
+    },
+    {
+        "id": 214,
+        "code": "AOV470",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S1",
+        "nama_produk": "470 AOV Vouchers",
+        "deskripsi": "",
+        "price": 90000,
+        "status": 1
+    },
+    {
+        "id": 4415,
+        "code": "AOV470_S2",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S2",
+        "nama_produk": "470 Voucher AOV S2",
+        "deskripsi": " ",
+        "price": 92200,
+        "status": 1
+    },
+    {
+        "id": 218,
+        "code": "AOV4800",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S1",
+        "nama_produk": "4800 AOV Vouchers",
+        "deskripsi": "",
+        "price": 900000,
+        "status": 1
+    },
+    {
+        "id": 4419,
+        "code": "AOV4800_S2",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S2",
+        "nama_produk": "4800 Voucher AOV S2",
+        "deskripsi": " ",
+        "price": 922000,
+        "status": 1
+    },
+    {
+        "id": 212,
+        "code": "AOV90",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S1",
+        "nama_produk": "90 AOV Vouchers",
+        "deskripsi": "",
+        "price": 18000,
+        "status": 1
+    },
+    {
+        "id": 4413,
+        "code": "AOV90_S2",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S2",
+        "nama_produk": "90 Voucher AOV S2",
+        "deskripsi": " ",
+        "price": 18440,
+        "status": 1
+    },
+    {
+        "id": 215,
+        "code": "AOV950",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S1",
+        "nama_produk": "950 AOV Vouchers",
+        "deskripsi": "",
+        "price": 180000,
+        "status": 1
+    },
+    {
+        "id": 4416,
+        "code": "AOV950_S2",
+        "category_name": "Topup Game",
+        "operator_produk": "Arena Of Valor (AOV)",
+        "jenis_name": "AOV S2",
+        "nama_produk": "950 Voucher AOV S2",
+        "deskripsi": " ",
+        "price": 184400,
+        "status": 1
+    }
+]

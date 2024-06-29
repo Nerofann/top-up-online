@@ -5,13 +5,14 @@
             <div class="message">
                 <span class="text text-1">{{ $header }}</span>
                 <span class="text text-2">
+
                     @if (is_string($message))
                         {{ $message }}
                     
                     @elseif(is_array($message))
                         <ul>
                             @foreach ($message as $item)
-                                <li>{{ dd($item) }}</li>
+                            <li>{{ $item }}</li>
                             @endforeach
                         </ul>
                     @endif

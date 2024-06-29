@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.template')
+@extends('layouts.template')
 @section('content')
 
 <div class="panel mb-2">
@@ -40,12 +40,14 @@
                         @foreach ($item['providers'] as $provider)
                             <div class="col-md-2">
                                 <div class="card h-100 border-light">
-                                    <div class="card-img-top pt-3 px-3">
-                                        <img src="{{ asset('assets/images/products/'.strtolower(str_replace(' ', '-', $item['kt_name'])).'/'.$provider['pv_image'].'') }}" class="rounded-2" alt="">
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <h6>{{ $provider['pv_code'] }}</h6>
-                                    </div>
+                                    <a href="javascript:void(0)" class="text-light">
+                                        <div class="card-img-top pt-3 px-3">
+                                            <img src="{{ Storage::url($provider['pv_image']) }}" class="rounded-2" alt="">
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <h6>{{ $provider['pv_code'] }}</h6>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         @endforeach

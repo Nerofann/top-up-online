@@ -1,0 +1,46 @@
+[
+    {
+        "id": 3662,
+        "code": "GILBOL01",
+        "category_name": "TV",
+        "operator_produk": "KVISION & GOL",
+        "jenis_name": "KVISION & GOL",
+        "nama_produk": "K-VISION & GOL PAKET GILA BOLA 30 Hari",
+        "deskripsi": "K-VISION & GOL PAKET GILA BOLA 30 Hari",
+        "price": 35057,
+        "status": 1
+    },
+    {
+        "id": 3663,
+        "code": "GILBOL03",
+        "category_name": "TV",
+        "operator_produk": "KVISION & GOL",
+        "jenis_name": "KVISION & GOL",
+        "nama_produk": "K-VISION & GOL PAKET GILA BOLA 3 Bulan",
+        "deskripsi": "K-VISION & GOL PAKET GILA BOLA 3 Bulan",
+        "price": 88991,
+        "status": 1
+    },
+    {
+        "id": 3664,
+        "code": "GILBOL06",
+        "category_name": "TV",
+        "operator_produk": "KVISION & GOL",
+        "jenis_name": "KVISION & GOL",
+        "nama_produk": "K-VISION & GOL PAKET GILA BOLA 6 Bulan",
+        "deskripsi": "K-VISION & GOL PAKET GILA BOLA 6 Bulan",
+        "price": 160903,
+        "status": 1
+    },
+    {
+        "id": 3665,
+        "code": "GILBOL12",
+        "category_name": "TV",
+        "operator_produk": "KVISION & GOL",
+        "jenis_name": "KVISION & GOL",
+        "nama_produk": "K-VISION & GOL PAKET GILA BOLA 12 Bulan",
+        "deskripsi": "K-VISION & GOL PAKET GILA BOLA 12 Bulan",
+        "price": 295738,
+        "status": 1
+    }
+]

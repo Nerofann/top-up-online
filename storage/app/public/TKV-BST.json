@@ -1,0 +1,46 @@
+[
+    {
+        "id": 5003,
+        "code": "BST14",
+        "category_name": "Voucher Game",
+        "operator_produk": "Bstation \/ Bilibili",
+        "jenis_name": "Bstation \/ Bilibili S1",
+        "nama_produk": "14 Days Premium",
+        "deskripsi": "Kode voucher akan muncul di halaman invoice",
+        "price": 12995,
+        "status": 1
+    },
+    {
+        "id": 5004,
+        "code": "BST31",
+        "category_name": "Voucher Game",
+        "operator_produk": "Bstation \/ Bilibili",
+        "jenis_name": "Bstation \/ Bilibili S1",
+        "nama_produk": "31 Days Premium",
+        "deskripsi": "Kode voucher akan muncul di halaman invoice",
+        "price": 23205,
+        "status": 1
+    },
+    {
+        "id": 5005,
+        "code": "BST366",
+        "category_name": "Voucher Game",
+        "operator_produk": "Bstation \/ Bilibili",
+        "jenis_name": "Bstation \/ Bilibili S1",
+        "nama_produk": "366 Days Premium",
+        "deskripsi": "Kode voucher akan muncul di halaman invoice",
+        "price": 203276,
+        "status": 1
+    },
+    {
+        "id": 5002,
+        "code": "BST7",
+        "category_name": "Voucher Game",
+        "operator_produk": "Bstation \/ Bilibili",
+        "jenis_name": "Bstation \/ Bilibili S1",
+        "nama_produk": "7 Days Premium",
+        "deskripsi": "Kode voucher akan muncul di halaman invoice",
+        "price": 9282,
+        "status": 1
+    }
+]

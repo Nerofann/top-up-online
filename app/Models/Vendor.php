@@ -14,6 +14,7 @@ class Vendor extends Model
         'v_api_url',
         'v_private_key',
         'v_api_key',
+        'v_slug',
         'created_at'
     ];
 }
