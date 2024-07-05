@@ -76,6 +76,7 @@ class AdminProviderController extends Controller
             'prov_dev'      => ['required', 'string']
         ]);
 
+
         if($validate->fails()) {
             return response()->json([
                 'success'   => false,
@@ -154,7 +155,8 @@ class AdminProviderController extends Controller
                 }
             ],
             'prov_nama'     => ['required', 'string'],
-            'prov_dev'      => ['required', 'string']
+            'prov_dev'      => ['required', 'string'],
+            'prov_desc'     => ['required', 'string'] 
         ]);
 
         if($validate->fails()) {
@@ -212,6 +214,7 @@ class AdminProviderController extends Controller
             'pv_name'       => $request->get('prov_nama'),
             'pv_dev'        => $request->get('prov_dev'),
             'pv_slug'       => Str::slug($request->get('prov_code')),
+            'prov_desc'     => $request->get('prov_desc'),
             'created_at'    => date('Y-m-d H:i:s')
         ]);
 

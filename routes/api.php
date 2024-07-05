@@ -30,7 +30,7 @@ Route::post('/kategory', function(Kategory $kategory) {
     return response($response, 200);
 });
 
-Route::post('/product/{pv_slug?}', function(Provider $provider, Product $product, ?string $pv_slug = "-") {
+Route::post('/product/{pv_slug?}', function(?string $pv_slug = "-" , Provider $provider, Product $product) {
     $detailProvider = $provider::select()->with('kategory')->where('pv_slug', $pv_slug)->first();
     $products       = $product::where('provider_id', $detailProvider->id)->get();
 
@@ -43,11 +43,11 @@ Route::post('/product/{pv_slug?}', function(Provider $provider, Product $product
                 'pv_code'   => $detailProvider->pv_code,
                 'pv_name'   => $detailProvider->pv_name,
                 'pv_dev'    => $detailProvider->pv_dev,
-                'pv_image'  => $detailProvider->pv_image,
-                'pv_banner' => $detailProvider->pv_banner
+                'pv_image'  => Storage::url($detailProvider->pv_image),
+                'pv_banner' => Storage::url($detailProvider->pv_banner)
             ],
             'kategori'  => $detailProvider->kategory,
-            'products'  => $products->toArray()
+            'products'  => $products->groupBy('type')
         ]
     ];
 
@@ -56,7 +56,7 @@ Route::post('/product/{pv_slug?}', function(Provider $provider, Product $product
 
 
 Route::get('/listProduk', function(ApiTokoVoucher $apiTokoVoucher) {
-    $list = $apiTokoVoucher->get('produk', ['kode' => "BIGO"]);
+    $list = $apiTokoVoucher->get('produk', ['kode' => "CTA_"]);
     $data = [];
     foreach($list->data as $l) {
         // print_r($l);
@@ -69,11 +69,22 @@ Route::get('/listProduk', function(ApiTokoVoucher $apiTokoVoucher) {
         // [deskripsi] =>  
         // [price] => 26500
         // [status] => 1
-
+        
+        $status = ($l->status == 1)? "tersedia" : "gangguan";
         $searchProvider = Provider::where('pv_slug', Str::slug($l->operator_produk))->first();
         if(!$searchProvider) {
             continue;
         }
+
+        if($status == "gangguan") {
+            continue;
+        }
+        
+        // if(strpos($l->operator_produk, "Azur") === FALSE) {
+        //     continue;
+        // }
+
+
         if(!Product::where('code', $l->code)->first()) {
             $data[] = [
                 'vendor_id'     => 1,
@@ -89,9 +100,8 @@ Route::get('/listProduk', function(ApiTokoVoucher $apiTokoVoucher) {
                 'published'     => "52f97cea-3a2e-4688-b45f-c72a84985cf5",
                 // 'instructions'  => ,
                 // 'icon'          => $filename,
-                'status'        => ($l->status == 1)? "tersedia" : "gangguan"
+                'status'        => $status
             ];
-        
         }
     }
 

@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    CKEDITOR.replace('editor');
+
     let table_provider = $('#table-provider').DataTable({
         processing: true,
         order: [[0, 'desc']],
