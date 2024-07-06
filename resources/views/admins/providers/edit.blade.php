@@ -61,7 +61,7 @@
 
                         <div class="col-6">
                             <label for="editor" class="form-label">Deskripsi</label>
-                            <textarea name="prov_desc" id="editor" class="form-control"></textarea>
+                            <textarea id="editor" class="form-control">{{ $provider->pv_desc ?? "" }}</textarea>
                         </div>
 
                         <div class="col-12">

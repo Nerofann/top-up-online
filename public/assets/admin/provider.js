@@ -66,6 +66,9 @@ $(document).ready(function() {
     $('#form-submit-add').on('submit', function(event) {
         event.preventDefault();
 
+        let formData = new FormData(this);
+        formData.append('prov_desc', CKEDITOR.instances['editor'].getData() || "");
+
         $.ajax({
             url: $(this).attr('action'),
             type: "POST",
@@ -73,7 +76,7 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             cache: false,
-            data: new FormData(this)
+            data: formData
         })
         .done(function(resp) {
             if(!resp.success) {
@@ -97,6 +100,9 @@ $(document).ready(function() {
     $('#form-submit-update').on('submit', function(event) {
         event.preventDefault()
 
+        let formData = new FormData(this);
+        formData.append('prov_desc', CKEDITOR.instances['editor'].getData() || "");
+
         $.ajax({
             url: $(this).attr('action'),
             type: "POST",
@@ -104,7 +110,7 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             cache: false,
-            data: new FormData(this)
+            data: formData
         })
         .done(function(resp) {
             if(!resp.success) {

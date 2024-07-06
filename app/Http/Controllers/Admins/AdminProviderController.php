@@ -69,11 +69,12 @@ class AdminProviderController extends Controller
 
     public function store(Request $request)
     {
-        $validate = Validator::make($request->only(['prov_kategory', 'prov_code', 'prov_nama', 'prov_dev']), [
+        $validate = Validator::make($request->only(['prov_kategory', 'prov_code', 'prov_nama', 'prov_dev', 'prov_desc']), [
             'prov_kategory' => ['required', 'exists:kategories,id'],
             'prov_code'     => ['required', 'string', 'unique:providers,pv_code'],
             'prov_nama'     => ['required', 'string'],
-            'prov_dev'      => ['required', 'string']
+            'prov_dev'      => ['required', 'string'],
+            'prov_desc'     => ['required', 'string']
         ]);
 
 
@@ -129,6 +130,7 @@ class AdminProviderController extends Controller
             'pv_image'      => $storeFotoProvider,
             'pv_banner'     => $storeFotoBanner,
             'pv_slug'       => Str::slug($request->get('prov_code')),
+            'pv_desc'       => $request->get('prov_desc'),
             'created_at'    => date('Y-m-d H:i:s')
         ]);
 
@@ -143,7 +145,7 @@ class AdminProviderController extends Controller
     public function update($slug, Request $request)
     {
         $update_array = [];
-        $validate = Validator::make($request->only(['prov_kategory', 'prov_code', 'prov_nama', 'prov_dev']), [
+        $validate = Validator::make($request->only(['prov_kategory', 'prov_code', 'prov_nama', 'prov_dev', 'prov_desc']), [
             'prov_kategory' => ['required', 'exists:kategories,id'],
             'prov_code'     => [
                 'required', 
@@ -214,7 +216,7 @@ class AdminProviderController extends Controller
             'pv_name'       => $request->get('prov_nama'),
             'pv_dev'        => $request->get('prov_dev'),
             'pv_slug'       => Str::slug($request->get('prov_code')),
-            'prov_desc'     => $request->get('prov_desc'),
+            'pv_desc'       => $request->get('prov_desc'),
             'created_at'    => date('Y-m-d H:i:s')
         ]);
 

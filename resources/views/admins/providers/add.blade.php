@@ -57,6 +57,15 @@
                         </div>
 
                         <div class="col-6">
+                            <label for="editor" class="form-label">Deskripsi</label>
+                            <textarea id="editor" class="form-control">{{ $provider->pv_desc ?? "" }}</textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <hr>
+                        </div>
+
+                        <div class="col-6">
                             <label for="prov_image" class="form-label">Gambar</label>
                             <input type="file" name="prov_image" id="prov_image" class="form-control dropify" data-height="300" >
                         </div>
