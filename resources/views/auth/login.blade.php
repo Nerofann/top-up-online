@@ -7,12 +7,12 @@
     <title>Login | {{ env('APP_NAME') }}</title>
     
     <link rel="shortcut icon" href="favicon.png">
-    <link rel="stylesheet" href="{{ url('assets/vendor/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{ url('assets/vendor/css/OverlayScrollbars.min.css')}}">
-    <link rel="stylesheet" href="{{ url('assets/vendor/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ url('assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{ url('assets/css/toast.css')}}">
-    <link rel="stylesheet" id="primaryColor" href="{{ url('assets/css/blue-color.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/OverlayScrollbars.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/toast.css')}}">
+    <link rel="stylesheet" id="primaryColor" href="{{ asset('assets/css/blue-color.css')}}">
     <link rel="stylesheet" id="rtlStyle" href="#">
 </head>
 <body class="dark-theme">
@@ -26,9 +26,9 @@
                 <div class="login-body">
                     <div class="top d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <img src="{{ url('assets/images/logo-black.png') }}" alt="Logo">
+                            <img src="{{ asset('assets/images/logo-black.png') }}" alt="Logo">
                         </div>
-                        <a href="{{ url('/') }}"><i class="fa-duotone fa-house-chimney"></i></a>
+                        <a href="{{ asset('/') }}"><i class="fa-duotone fa-house-chimney"></i></a>
                     </div>
                     <div class="bottom">
                         <h3 class="panel-title">Login</h3>
@@ -93,10 +93,10 @@
     </div>
     <!-- main content end -->
     
-    <script src="{{ url('assets/vendor/js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ url('assets/vendor/js/jquery.overlayScrollbars.min.js') }}"></script>
-    <script src="{{ url('assets/vendor/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/vendor/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/js/jquery.overlayScrollbars.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
     <!-- for demo purpose -->
     <script>
         var rtlReady = $('html').attr('dir', 'ltr');
