@@ -43,7 +43,7 @@ class OauthGoogleController extends Controller
             // }
 
         } catch (Exception $e) {
-            return redirect()->route('login')->with('error', $e->getMessage());
+            return redirect()->route('login')->with('danger', $e->getMessage());
         }
     }
 }
