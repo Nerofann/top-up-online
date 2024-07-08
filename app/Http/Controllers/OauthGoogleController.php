@@ -36,6 +36,8 @@ class OauthGoogleController extends Controller
                 'email'         => $gUser->email,
                 'password'      => Hash::make($gUser->id),
                 'referral'      => Str::random(10),
+                'gauth_id'      => $gUser->id,
+                'gauth_type'    => "google",
                 'crated_at '    => date("Y-m-d H:i:s")
             ]);
     
