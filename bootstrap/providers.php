@@ -2,5 +2,5 @@
 
 return [
     App\Providers\AppServiceProvider::class,
-    App\Providers\AppSidebarProvider::class,
+    Laravel\Socialite\SocialiteServiceProvider::class
 ];
