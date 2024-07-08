@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admins;
 use App\Http\Controllers\Controller;
 use App\Models\Kategory;
 use App\Models\Provider;
+use App\Models\ProviderServer;
 use App\Services\AppGlobals;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -64,6 +66,14 @@ class AdminProviderController extends Controller
             'title' => "Update Provider",
             'provider' => $provider,
             'kategory' => Kategory::get(),
+            'infoakun' => [
+                'id'        => "ID",
+                'idstring'  => "ID String",
+                'username'  => "Username",
+                'server'    => "Server",
+                'player-tag'=> "Player Tag",
+            ],
+            'server' => ProviderServer::where("provider_id", $provider->id)->get()
         ]);
     }
 
@@ -145,7 +155,7 @@ class AdminProviderController extends Controller
     public function update($slug, Request $request)
     {
         $update_array = [];
-        $validate = Validator::make($request->only(['prov_kategory', 'prov_code', 'prov_nama', 'prov_dev', 'prov_desc']), [
+        $validate = Validator::make($request->only(['prov_kategory', 'prov_code', 'prov_nama', 'prov_dev', 'prov_desc', 'prov_req']), [
             'prov_kategory' => ['required', 'exists:kategories,id'],
             'prov_code'     => [
                 'required', 
@@ -158,7 +168,8 @@ class AdminProviderController extends Controller
             ],
             'prov_nama'     => ['required', 'string'],
             'prov_dev'      => ['required', 'string'],
-            'prov_desc'     => ['required', 'string'] 
+            'prov_desc'     => ['required', 'string'],
+            'prov_req'      => ['required', 'array'],
         ]);
 
         if($validate->fails()) {
@@ -217,10 +228,24 @@ class AdminProviderController extends Controller
             'pv_dev'        => $request->get('prov_dev'),
             'pv_slug'       => Str::slug($request->get('prov_code')),
             'pv_desc'       => $request->get('prov_desc'),
+            'pv_req'        => implode(",", $request->get('prov_req')),
             'created_at'    => date('Y-m-d H:i:s')
         ]);
 
         Provider::where('pv_slug', $slug)->update($update_array);
+
+        /** Update Provider server */
+        if(in_array("server", $request->get('prov_req'))) {
+            if($request->get('server')) {
+                $where = Provider::select('id')->where('pv_slug', $slug)->limit(1);
+                ProviderServer::where('provider_id', $where)
+                    ->update(['status' => 0]);
+
+                ProviderServer::where('provider_id', $where)
+                    ->whereIn('server', $request->get('server'))
+                    ->update(['status' => 1]);
+            }
+        }
 
         return response()->json([
             'success'   => true,
@@ -253,6 +278,44 @@ class AdminProviderController extends Controller
             'success'   => true,
             'errors'    => [],
             'message'   => "Provider berhasil dihapus",
+        ]);
+    }
+
+    public function addServer(Request $request) {
+        $validator = Validator::make($request->only('server'), [
+            'server' => ['required', 'string']
+        ]);
+
+        if($validator->fails()) {
+            return response([
+                'success'   => false,
+                'error'     => $validator->getMessagebag()->toArray(),
+                'message'   => "Invalidate"
+            ]);
+        }
+
+        $check = ProviderServer::where(DB::raw('LOWER(server)'), Str::lower($request->get("server")))
+            ->where("provider_id", $request->get('provider_id'))
+            ->first();
+
+        if($check) {
+            return response([
+                'success'   => false,
+                'error'     => ["Server sudah ada"],
+                'message'   => "Invalidate"
+            ]);
+        }
+
+        ProviderServer::create([
+            'provider_id' => $request->get('provider_id'),
+            'server' => $request->get('server'),
+            'created_at' => date("Y-m-d H:i:s")
+        ]);
+
+        return response([
+            'success'   => true,
+            'error'     => "",
+            'message'   => "Berhasil"
         ]);
     }
 }

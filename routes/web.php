@@ -36,6 +36,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/edit/{code}', [AdminProviderController::class, 'edit']);
         Route::post('/update/{slug}', [AdminProviderController::class, 'update'])->name('adminProviderUpdate_post');
         Route::post('/delete/{slug}', [AdminProviderController::class, 'delete'])->name('adminProviderDelete_post');
+
+        Route::post('/addServer', [AdminProviderController::class, 'addServer']);
     });
 
     Route::prefix('/vendor')->group(function() {
