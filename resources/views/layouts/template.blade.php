@@ -20,13 +20,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" integrity="sha512-In/+MILhf6UMDJU4ZhDL0R0fEpsp4D3Le23m6+ujDWXwl3whwpucJG1PEmI3B07nyJx+875ccs+yX2CqQJUxUw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" id="primaryColor" href="{{ asset('assets/css/blue-color.css') }}">
     <link rel="stylesheet" id="rtlStyle" href="#">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <script src="{{ asset('assets/vendor/js/jquery-3.6.0.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         CKEDITOR.config.versionCheck = false;
     </script>
+
+    <style>
+        .select2-selection.select2-selection--multiple {
+            background-color: transparent !important;
+        }
+    </style>
 </head>
 <body class="body-padding body-p-top dark-theme">
     <!-- preloader start -->

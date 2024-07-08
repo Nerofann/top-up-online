@@ -3,6 +3,7 @@
 use App\Models\Kategory;
 use App\Models\Product;
 use App\Models\Provider;
+use App\Models\ProviderServer;
 use App\Models\Vendor;
 use App\Services\ApiTokoVoucher;
 use Illuminate\Http\Request;
@@ -44,12 +45,21 @@ Route::post('/product/{pv_slug?}', function(?string $pv_slug = "-" , Provider $p
                 'pv_name'   => $detailProvider->pv_name,
                 'pv_dev'    => $detailProvider->pv_dev,
                 'pv_image'  => Storage::url($detailProvider->pv_image),
-                'pv_banner' => Storage::url($detailProvider->pv_banner)
+                'pv_banner' => Storage::url($detailProvider->pv_banner),
+                'pv_desc'   => $detailProvider->pv_desc,
+                'pv_req'    => $detailProvider->pv_req,
             ],
             'kategori'  => $detailProvider->kategory,
             'products'  => $products->groupBy('type')
         ]
     ];
+
+    if(in_array("server", explode(",", $detailProvider->pv_req))) {
+        $provServer = ProviderServer::select('server')->where('provider_id', $detailProvider->id)->where('status', 1)->get();
+        foreach($provServer as $prov) {
+            $response["data"]["provider"]["server"][] = $prov->server;
+        }
+    }
 
     return response($response, 200);
 });
