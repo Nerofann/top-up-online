@@ -59,6 +59,11 @@ class LoginController extends Controller
 
         session()->regenerate();
         $user   = Auth::user();
+
+        if($user->status !== 1) {
+            return redirect()->route('login')->withInput($request->all())->with("danger", "Akun belum aktif");
+        }
+
         return redirect()->route( "dashboard" )->with("success", "Selamat datang kembali {$user->first_name}");
     }
 }
