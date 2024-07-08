@@ -7,6 +7,7 @@ use App\Http\Controllers\Admins\AdminProductController;
 use App\Http\Controllers\Admins\AdminProviderController;
 use App\Http\Controllers\Admins\KategoryController;
 use App\Http\Controllers\Admins\VendorController;
+use App\Http\Controllers\OauthGoogleController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([])->group(function () {
@@ -15,6 +16,9 @@ Route::middleware([])->group(function () {
 
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'do_register'])->name('registerPost');
+
+    Route::get("/oauth/google", [OauthGoogleController::class, 'index']);
+    Route::get("/oauth/google/callback", [OauthGoogleController::class, 'handleProviderCallback']);
 });
 
 Route::middleware(['auth'])->group(function () {
