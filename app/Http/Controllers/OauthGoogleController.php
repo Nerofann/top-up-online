@@ -22,6 +22,10 @@ class OauthGoogleController extends Controller
             $findUser = User::where("gauth_id", $gUser->id)->first();
 
             if($findUser) {
+                if($findUser->status !== 1) {
+                    return redirect()->route( "login" )->with("danger", "Akun kamu belum aktif, menunggu konfirmasi admin");
+                }
+                
                 session()->regenerate();
                 $user   = Auth::user();
                 return redirect()->route( "dashboard" )->with("success", "Selamat datang kembali {$user->first_name}");
