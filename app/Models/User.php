@@ -25,6 +25,8 @@ class User extends Authenticatable
         'password',
         'referral',
         'picture',
+        'gauth_id',
+        'gauth_type',
         'created_at',
     ];
 
