@@ -22,6 +22,12 @@ class OauthGoogleController extends Controller
             $findUser = User::where("gauth_id", $gUser->id)->orWhere('email', $gUser->email)->first();
 
             if($findUser) {
+                /** Update User */
+                User::where('id', $findUser->id)->update([
+                    'gauth_id'  => $gUser->id,
+                    'gauth_type'=> "google"    
+                ]);
+                
                 if($findUser->status !== 1) {
                     return redirect()->route( "login" )->with("danger", "Akun kamu belum aktif, menunggu konfirmasi admin");
                 }
