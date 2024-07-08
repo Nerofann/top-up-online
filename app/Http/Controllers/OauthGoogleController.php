@@ -27,7 +27,8 @@ class OauthGoogleController extends Controller
                 }
                 
                 session()->regenerate();
-                return redirect()->route( "dashboard" )->with("success", "Selamat datang kembali {$findUser->first_name}");
+                Auth::loginUsingId($findUser->id);
+                return redirect()->route("dashboard")->with("success", "Selamat datang kembali {$findUser->first_name}");
             }
 
             /** Jika Belum punya akun */
