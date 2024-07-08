@@ -1,5 +1,9 @@
 $(document).ready(function() {
     CKEDITOR.replace('editor');
+    infoAkunSelect2 = $('#requirement').select2();
+    serverSelect2 = $('#server').select2();
+    let select2Val = serverSelect2.val();
+
 
     let table_provider = $('#table-provider').DataTable({
         processing: true,
@@ -128,6 +132,59 @@ $(document).ready(function() {
         .catch(function(err) {
             Swal.fire('Error', err, 'error')
             throw err
+        })
+    })
+
+    $('#create-server').on('click', function(event) {
+        Swal.fire({
+            text: "Masukkan Nama Server",
+            input: "text",
+            inputAttributes: {
+                autoCapitalize: false
+            },
+            showCancelButton: true,
+            showLoaderOnConfirm: true,
+            confirmButtonText: "Tambah",
+            preConfirm: async(server) => {
+                try {
+                    let result = false;
+                    await $.ajax({
+                        url: "/provider/addServer",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            provider_id: $(event.currentTarget).data('id'), 
+                            server: server,
+                        }
+                    }).done(function(resp) {
+                        if(!resp.success) {
+                            let error = '';
+                            jQuery.each(resp.error, function(key, val) {
+                                error += val
+                            });
+                            
+                            Swal.showValidationMessage(error || resp.message)
+                            return false;   
+                        }
+
+                        result = true;
+                        select2Val.push(server);
+                        serverSelect2
+                            .append(new Option(server, server, false, false))
+                            .val(select2Val)
+                            .trigger('change')
+
+                    })
+
+                    if(result) {
+                        return server;
+                    }
+                    
+
+                } catch (error) {
+                    Swal.showValidationMessage(`Request failed: ${error}`)
+                }
+            }
         })
     })
 })
