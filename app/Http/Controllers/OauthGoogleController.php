@@ -19,7 +19,7 @@ class OauthGoogleController extends Controller
     public function handleProviderCallback() {
         try {
             $gUser = Socialite::driver('google')->user();
-            $findUser = User::where("gauth_id", $gUser->id)->first();
+            $findUser = User::where("gauth_id", $gUser->id)->orWhere('email', $gUser->email)->first();
 
             if($findUser) {
                 if($findUser->status !== 1) {
